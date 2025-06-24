@@ -1,19 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <com.devadvance.circularseekbar.CircularSeekBar
+        android:id="@+id/circularSeekBar"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:circle_color="#E0E0E0"
+        app:max="120"
+        app:pointer_color="#FFFFFF"
+        app:progress="20"
+        app:start_angle="150"
+        app:end_angle="30"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13.4°C"
+        android:textColor="#6A5ACD"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/circularSeekBar"
+        app:layout_constraintEnd_toEndOf="@id/circularSeekBar"
+        app:layout_constraintStart_toStartOf="@id/circularSeekBar"
+        app:layout_constraintTop_toTopOf="@id/circularSeekBar" />
+
+    <LinearLayout
+        android:id="@+id/unitSwitchLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/circularSeekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <Button
+            android:id="@+id/buttonLeft"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            app:icon="@android:drawable/ic_media_rew" />
+
+        <TextView
+            android:id="@+id/textUnit"
+            android:layout_marginHorizontal="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="°C"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonRight"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            app:icon="@android:drawable/ic_media_ff"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
